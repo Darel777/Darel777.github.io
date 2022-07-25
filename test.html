@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>测试页面</title>
+</head>
+<body>
+    <div style="text-align: center">
+        按下按钮开始测试<br><button id="btn1" onclick="testAll()"></button>
+        
+    </div>
+
+    <div id="app" style="text-align: center">
+        {{message}}
+        <br>测试共分为三部分：vm赋值测试，编译测试和观察者测试
+        <br>具体的测试项目和注释见：src/mvvm_frame/test.js
+    </div>
+    <script src="src/mvvm_frame/mvvm.js">
+    </script>
+    <script src="src/mvvm_frame/compile.js">
+    </script>
+    <script src="src/mvvm_frame/observer.js">
+    </script>
+    <script src="src/mvvm_frame/watcher.js">
+    </script>
+    <script src="src/mvvm_frame/dep.js">
+    </script>
+    <script src="src/mvvm_frame/test.js">
+    </script>
+    <script>
+        let vm =new MVVM({//change
+            el:'#app',//change
+            data:{
+                message:"hello mvvm",
+                message2:{
+                    message3:"message2's a",
+                    message4:{
+                        a:'a',
+                        b:'b',
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

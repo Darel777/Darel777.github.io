@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>MVVM实现</title>
+</head>
+
+<body>
+    <!--  app项目框架  -->
+    <div id="app" style="text-align: center">
+        <div style="color: crimson">这个字段在v-model中:</div><input type="text" v-model="message" >
+        <div style="color: crimson">这个字段在div中:</div><div>{{message}}</div>
+        <div style="color: crimson">这个字段是独立的:</div>{{message}}<br>
+        测试1：单向绑定——点击按钮改变字段的值域<br><button id="btn1" onclick="change_mvvm()"></button><br>
+        测试2：双向绑定——在框中输入文字<br><input type="text" v-model="message">
+        <br>发布订阅模式和数据劫持在上面有体现：
+        <br>数据劫持体现在src/mvvm_frame/observer.js；发布订阅模式体现在src/mvvm_frame的dep.js和watcher.js
+    </div>
+    <!--  引入*.js  -->
+    <script src="src/mvvm_frame/mvvm.js">
+    </script>
+    <script src="src/mvvm_frame/compile.js">
+    </script>
+    <script src="src/mvvm_frame/observer.js">
+    </script>
+    <script src="src/mvvm_frame/watcher.js">
+    </script>
+    <script src="src/mvvm_frame/dep.js">
+    </script>
+    <!--  new mvvm  -->
+    <script>
+        let vm=new MVVM({
+            el:'#app',
+            data:{
+                message:"hello mvvm"
+            }
+        })
+        function change_mvvm(){
+            vm.$data.message=vm.$data.message+"m"
+        }
+    </script>
+</body>
+</html>

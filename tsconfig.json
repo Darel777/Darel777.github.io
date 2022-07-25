@@ -1,0 +1,12 @@
+{
+  "include": [
+    "dist/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compilerOptions": {
+    "outDir": "./src/mvvm_frame",
+    "target": "ES6"
+  }
+}
